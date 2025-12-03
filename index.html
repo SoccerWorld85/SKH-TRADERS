@@ -3,272 +3,888 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SKH Traders - Premium Seeds Supplier</title>
-    <meta name="description" content="SKH Traders specializes in premium quality seeds including fennel, carom, coriander, and cumin seeds. Based in Gujranwala, Pakistan.">
-
-    <!-- External CSS -->
+    <title>SKH TRADERS - Premium Spices Exporter | Pakistan</title>
+    <meta name="description" content="SKH TRADERS - Premium export-grade spices from Pakistan. Sortex-cleaned, 99.5% purity, international quality. Serving wholesalers and manufacturers worldwide.">
+    <meta name="keywords" content="spice exporter, coriander, cumin, fennel, turmeric, black pepper, spices wholesale, Pakistan export">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Homepage specific styles */
+        .hero {
+            background: linear-gradient(135deg, #1a472a 0%, #2d7a3e 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
 
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+
+        .hero-tagline {
+            font-size: 22px;
+            margin-bottom: 20px;
+            opacity: 0.95;
+            font-weight: 500;
+            color: #ffd700;
+        }
+
+        .hero-cta {
+            margin-top: 30px;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            padding: 14px 40px;
+            background-color: #ffd700;
+            color: #1a472a;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 16px;
+            transition: all 0.3s;
+            margin: 0 10px;
+        }
+
+        .cta-btn:hover {
+            background-color: #ffed4e;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255, 215, 0, 0.3);
+        }
+
+        .hero-subtitle {
+            font-size: 16px;
+            margin-top: 25px;
+            color: white;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        /* Strengths Section */
+        .strengths {
+            background: var(--bg-light);
+            padding: 60px 20px;
+        }
+
+        .strengths-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .strength-card {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-color);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .strength-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        }
+
+        .strength-icon {
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+
+        .strength-card h3 {
+            font-size: 18px;
+            color: var(--text-color);
+            margin-bottom: 10px;
+        }
+
+        .strength-card p {
+            font-size: 14px;
+            color: var(--text-light);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* About Section */
+        .about {
+            background: white;
+            padding: 60px 20px;
+        }
+
+        .about-content {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .about-section {
+            margin-bottom: 50px;
+        }
+
+        .about-section h2 {
+            font-size: 28px;
+            color: var(--primary-dark);
+            margin-bottom: 20px;
+        }
+
+        .about-section p {
+            font-size: 15px;
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .value-item {
+            background: var(--bg-light);
+            padding: 20px;
+            border-radius: 6px;
+            text-align: center;
+        }
+
+        .value-item strong {
+            color: var(--primary-color);
+            display: block;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        .value-item p {
+            font-size: 13px;
+            margin: 0;
+        }
+
+        /* Featured Products Section */
+        .featured-products {
+            background: var(--bg-light);
+            padding: 60px 20px;
+            order: -1;
+        }
+
+        .section-title {
+            font-size: 32px;
+            color: var(--primary-dark);
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-light);
+            font-size: 15px;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .products-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .filter-section {
+            background-color: var(--bg-light);
+            padding: 15px 20px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        .filter-section h3 {
+            margin: 0 0 12px 0;
+            color: var(--primary-dark);
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .filter-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .filter-option {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .filter-option input[type="checkbox"] {
+            cursor: pointer;
+            width: 16px;
+            height: 16px;
+            accent-color: var(--primary-color);
+        }
+
+        .filter-option label {
+            cursor: pointer;
+            margin: 0;
+            font-size: 13px;
+            color: var(--text-color);
+            font-weight: 500;
+        }
+
+        .products-preview {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+            max-width: 1200px;
+            margin: 0 auto;
+            margin-bottom: 40px;
+        }
+
+        .product-preview-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+        }
+
+        .product-preview-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+        }
+
+        .product-preview-image {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            background: var(--bg-light);
+        }
+
+        .product-preview-info {
+            padding: 20px;
+        }
+
+        .product-preview-name {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-color);
+            margin-bottom: 8px;
+        }
+
+        .product-preview-category {
+            font-size: 11px;
+            text-transform: uppercase;
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        /* Featured Products Section */
+        .featured-products {
+            background: var(--bg-light);
+            padding: 60px 20px;
+            order: -1;
+        }
+
+        .section-title {
+            font-size: 32px;
+            color: var(--primary-dark);
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-light);
+            font-size: 15px;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .products-preview {
+            display: flex;
+            gap: 25px;
+            overflow-x: auto;
+            padding: 20px;
+            scroll-behavior: smooth;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .products-preview::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .products-preview::-webkit-scrollbar-track {
+            background: var(--bg-color);
+            border-radius: 10px;
+        }
+
+        .products-preview::-webkit-scrollbar-thumb {
+            background: var(--primary-color);
+            border-radius: 10px;
+        }
+
+        .products-preview::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-dark);
+        }
+
+        .product-preview {
+            flex: 0 0 280px;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+            scroll-snap-align: start;
+        }
+
+        .product-preview:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        }
+
+        .product-preview-image {
+            height: 200px;
+            overflow: hidden;
+            object-fit: cover;
+            background: var(--bg-light);
+        }
+
+        .product-preview-info {
+            padding: 20px;
+        }
+
+        .product-preview-name {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-color);
+            margin-bottom: 8px;
+        }
+
+        .product-preview-category {
+            font-size: 11px;
+            text-transform: uppercase;
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .product-preview-specs {
+            font-size: 12px;
+            color: var(--text-light);
+            line-height: 1.5;
+        }
+
+        .view-all-btn {
+            display: inline-block;
+            padding: 12px 35px;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .view-all-btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(45, 122, 62, 0.3);
+        }
+
+        /* Quality Promise Section */
+        .quality-section {
+            background: linear-gradient(135deg, #1a472a 0%, #2d7a3e 100%);
+            color: white;
+            padding: 60px 20px;
+        }
+
+        .quality-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .quality-text h2 {
+            font-size: 32px;
+            margin-bottom: 25px;
+        }
+
+        .quality-text p {
+            font-size: 15px;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            opacity: 0.95;
+        }
+
+        .quality-checklist {
+            list-style: none;
+            padding: 0;
+        }
+
+        .quality-checklist li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+            font-size: 15px;
+        }
+
+        .quality-checklist li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+            color: #ffd700;
+            font-size: 18px;
+        }
+
+        .quality-promises {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .promise-box {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 6px;
+            border-left: 3px solid #ffd700;
+        }
+
+        .promise-box strong {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+
+        .promise-box p {
+            font-size: 14px;
+            margin: 0;
+            opacity: 0.9;
+        }
+
+        @media (max-width: 900px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero-tagline {
+                font-size: 18px;
+            }
+
+            .quality-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .quality-promises {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hero {
+                padding: 50px 20px;
+            }
+
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            .hero-tagline {
+                font-size: 16px;
+            }
+
+            .cta-btn {
+                display: block;
+                margin: 10px auto;
+            }
+
+            .strengths-grid,
+            .products-preview {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
-
 <body>
-                    <!-- Header -->
-                    <header>
-                        <div class="header-container">
-                            <a href="#home" class="logo">SKH Traders</a>
-                            <nav id="nav-menu">
-                                <a href="#home">Home</a>
-                                <a href="#products">Products</a>
-                                <a href="#services">Services</a>
-                                <a href="#contact">Contact</a>
-                            </nav>
-                            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
-                        </div>
-                    </header>
-
-                    <!-- Main Content -->
-                    <main>
-                        <!-- Welcome Section -->
-<section id="welcome" id="home">
-  <p class="welcome-heading">Welcome to SKH Traders</p>
-  <p class="welcome-subheading">We are a leading name in the field of processing and trading of premium quality seeds. Our focus is on adopting new technologies to expand our market reach and ensure high-quality standards in sourcing and processing.</p>
-  <p class="welcome-body">SKH Traders has established itself as a trusted partner in the seeds and spices sector, serving wholesalers, manufacturers, and importers across the globe. With decades of experience in the industry, we understand the critical importance of quality, reliability, and transparency in every transaction.</p>
-  <p class="welcome-body">Our commitment to excellence drives us to continuously improve our processes and embrace innovative solutions that benefit our clients and partners. Whether you need bulk seed processing, import/export services, or custom sourcing solutions, we deliver with precision and integrity.</p>
-</section>
-
-                        <!-- Products Section -->
-<section id="products">
-    <h2>Our Products</h2>
-    <p>We specialize in the sourcing, processing, and export of premium quality seeds and spices. Each product undergoes rigorous quality checks to ensure it meets international standards.</p>
-    <div class="products-grid">
-        <div class="product-card">
-            <img src="./attached_assets/generated_images/fennel_seeds_product_photo.png" alt="Fennel Seeds" class="product-image">
-            <div class="product-content">
-                <h3>Fennel Seeds</h3>
-                <p>Premium quality fennel seeds (saunf) known for their sweet, aromatic flavor. Ideal for culinary, medicinal, and industrial applications. Available in bulk quantities with consistent quality.</p>
-            </div>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo">SKH TRADERS</a>
+            <nav id="nav-menu">
+                <a href="index.html">Home</a>
+                <a href="#products-section">Products</a>
+                 <a href="quality.html">Quality</a>
+                <a href="about.html">About</a>
+                <a href="#site-footer">Contact</a>
+            </nav>
+            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
         </div>
-        <div class="product-card">
-            <img src="./attached_assets/generated_images/carom_seeds_product_photo.png" alt="Carom Seeds" class="product-image">
-            <div class="product-content">
-                <h3>Carom Seeds</h3>
-                <p>High-grade carom seeds (ajwain) with a distinctive, pungent aroma. Sourced from trusted farms and processed under strict quality control. Perfect for food processing and pharmaceutical industries.</p>
-            </div>
-        </div>
-        <div class="product-card">
-            <img src="./attached_assets/generated_images/coriander_seeds_product_photo.png" alt="Coriander Seeds" class="product-image">
-            <div class="product-content">
-                <h3>Coriander Seeds</h3>
-                <p>Carefully selected coriander seeds with a rich, citrusy flavor profile. Our coriander seeds meet international quality standards and are suitable for spice blends, oil extraction, and food manufacturing.</p>
-            </div>
-        </div>
-        <div class="product-card">
-            <img src="./attached_assets/generated_images/cumin_zeera_seeds_product_photo.png" alt="Cumin Seeds" class="product-image">
-            <div class="product-content">
-                <h3>Cumin Seeds</h3>
-                <p>Premium cumin seeds with an earthy, warm flavor. Essential for spice blends and culinary preparations worldwide. Available in various grades to meet diverse client requirements.</p>
-            </div>
-        </div>
+    </header>
 
-        <!-- New Products Added Below -->
-        <div class="product-card">
-            <img src="./attached_assets/generated_images/turmeric_powder.png" alt="Turmeric Powder" class="product-image">
-            <div class="product-content">
-                <h3>Turmeric Powder (Powdered/Whole)</h3>
-                <p>Pure, vibrant turmeric powder with high curcumin content. Rich golden color and authentic aroma, perfect for culinary use, food coloring, cosmetics, and pharmaceutical applications.</p>
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Premium Quality Spices Exported From Pakistan</h1>
+                <p class="hero-tagline">Pure • Natural • Clean • Export Grade</p>
+                <p class="hero-subtitle">
+                    SKH TRADERS is a trusted exporter of premium whole and ground spices, supplying to international wholesalers, importers, food manufacturers, and seasoning companies. We deliver clean, professionally processed, and export-certified spices with complete documentation and fast shipment from Karachi Port.
+                </p>
             </div>
-        </div>
-        <div class="product-card">
-            <img src="./attached_assets/generated_images/red_chillies.png" alt="Red Chillies" class="product-image">
-            <div class="product-content">
-                <h3>Red Chillies (Powdered/Whole)</h3>
-                <p>Bold, fiery dried red chillies sourced from the finest regions. Available whole or ground, offering consistent heat levels (mild to extra hot) and deep red color for spices, sauces, and food processing.</p>
-            </div>
-        </div>
-        <div class="product-card">
-            <img src="./attached_assets/generated_images/black_pepper.png" alt="Black Pepper" class="product-image">
-            <div class="product-content">
-                <h3>Black Pepper (Powdered/Whole)</h3>
-                <p>Premium bold black peppercorns with intense aroma and sharp pungency. Carefully processed to retain essential oils. Widely used as the "King of Spices" in global cuisines and seasoning blends.</p>
-            </div>
-        </div>
-    </div>
-</section>
+        </section>
 
-                        <!-- Services Section -->
-                        <section id="services">
-                            <h2>Our Services</h2>
-                            <p>As a trusted B2B partner for wholesalers, manufacturers, and importers in the seeds and spices sector, we offer a comprehensive suite of services designed to meet your business needs with reliability and professionalism.</p>
+        <!-- Products Section (full product layout) -->
+        <section id="products-section">
+            <h2 class="section-title">Premium Export-Grade Spices</h2>
+            <p class="section-subtitle">Bulk quantities available | Competitive wholesale pricing | All export certified | Fast international shipping</p>
 
-                            <div class="services-list">
-                                <div class="service-item">
-                                    <div class="service-icon">✓</div>
-                                    <div class="service-content">
-                                        <h4>Bulk Seed Processing and Production</h4>
-                                        <p>State-of-the-art facilities for processing and producing seeds in bulk quantities, ensuring consistency and quality across every batch.</p>
-                                    </div>
-                                </div>
+            <div class="products-container">
+                <!-- Sidebar with search and filters -->
+                <aside class="sidebar">
+                    <div class="search-box">
+                        <input 
+                            type="text" 
+                            id="searchInput" 
+                            placeholder="Search spices..."
+                            onkeyup="handleSearch()"
+                            onkeypress="if(event.key==='Enter') handleSearchClick()"
+                        >
+                        <span class="search-icon" onclick="handleSearchClick()">🔍</span>
+                    </div>
 
-                                <div class="service-item">
-                                    <div class="service-icon">✓</div>
-                                    <div class="service-content">
-                                        <h4>Import and Export Services</h4>
-                                        <p>Comprehensive international trade services covering our full range of seed products, with established networks across key markets worldwide.</p>
-                                    </div>
-                                </div>
-
-                                <div class="service-item">
-                                    <div class="service-icon">✓</div>
-                                    <div class="service-content">
-                                        <h4>Indenting Services</h4>
-                                        <p>Professional sourcing on behalf of clients to secure reliable, high-quality seeds. We act as your trusted intermediary to ensure the best products at competitive prices.</p>
-                                    </div>
-                                </div>
-
-                                <div class="service-item">
-                                    <div class="service-icon">✓</div>
-                                    <div class="service-content">
-                                        <h4>Quality Assurance and Compliance</h4>
-                                        <p>Strict quality checks at every stage of the supply chain. We adhere to international standards and maintain complete transparency in our operations.</p>
-                                    </div>
-                                </div>
+                    <div class="filter-section">
+                        <h3>Category</h3>
+                        <div class="filter-group" id="categoryFilter">
+                            <div class="filter-option">
+                                <input type="checkbox" id="category-all" value="all" checked onchange="handleCategoryFilter()">
+                                <label for="category-all">All Categories</label>
                             </div>
-                        </section>
+                        </div>
+                    </div>
+                </aside>
 
-<!-- Contact Section -->
-
-<section id="contact" class="site-section">
-
-  <div class="wrap">
-
-    <h2>Contact Us</h2>
-
-    <p>Get in touch with our team for inquiries, orders, or partnership opportunities.</p>
-
-    <!-- contact-only indicates there's no form on the right -->
-
-    <div class="contact-container contact-only">
-
-      <!-- Left: Contact information (now the only column) -->
-
-      <aside class="contact-info">
-
-        <h3 class="info-title">Company Details</h3>
-
-        <div class="contact-block">
-
-          <div class="contact-icon" aria-hidden="true">📍</div>
-
-          <div class="contact-text">
-
-            <h4 class="contact-name">SKH Traders</h4>
-
-            <p class="contact-meta">Sanat Road, Street # 4, Gujranwala, Punjab, Pakistan</p>
-
-          </div>
-
-        </div>
-
-        <div class="divider" role="separator" aria-hidden="true"></div>
-
-        <h3 class="info-title">Contact Persons</h3>
-
-        <!-- two-column persons area: left column stacks two people, right column has Wahab -->
-
-        <div class="contact-persons">
-
-          <!-- left column (stacked) -->
-
-          <div class="persons-col">
-
-            <div class="contact-block">
-
-              <div class="contact-icon" aria-hidden="true">👤</div>
-
-              <div class="contact-text">
-
-                <h4 class="contact-name">SHAZIB</h4>
-
-                <p class="contact-meta">Owner / Manager</p>
-
-                <a class="contact-link" href="tel:+923248787858" aria-label="Call Shazib Mehar">📞 +92 324 8787858</a>
-
-                <a class="contact-link" href="https://wa.me/+923178101476" target="_blank" rel="noopener" aria-label="WhatsApp Shazib Mehar">💬 WhatsApp</a>
-
-                <a class="contact-link" href="mailto:shazib.mehar3@gmail.com" aria-label="Email Shazib Mehar">✉️ shazib.mehar3@gmail.com</a>
-
-              </div>
-
+                <!-- Products Grid -->
+                <div id="productsGrid" class="products-grid">
+                    <!-- Populated by JavaScript -->
+                </div>
             </div>
-
-          </div>
-
-          <!-- right column (single person) -->
-
-          <div class="persons-col">
-
-            <div class="contact-block">
-
-              <div class="contact-icon" aria-hidden="true">👤</div>
-
-              <div class="contact-text">
-
-                <h4 class="contact-name">Wahab Khaddim</h4>
-
-                <p class="contact-meta">Sales / Contact</p>
-
-                <a class="contact-link" href="tel:+923267761977" aria-label="Call Wahab Khaddim">📞 +92 313 7624137</a>
-
-                <a class="contact-link" href="https://wa.me/923267761977" target="_blank" rel="noopener" aria-label="WhatsApp Wahab Khaddim">💬 WhatsApp</a>
-
-                <a class="contact-link" href="mailto:wahab.khaddim@gmail.com" aria-label="Email Wahab Khaddim">✉️ wahab.khaddim@gmail.com</a>
-
-              </div>
-
-            </div>
-
-          </div>
-
-        </div>
-
-        <div class="contact-note" role="note">
-
-          <strong>Note:</strong> If we are unable to answer your call, kindly leave a message on WhatsApp. We will respond as soon as possible.
-
-        </div>
-
-      </aside>
-
-    </div>
-
-  </div>
-
-</section>
-
-
+        </section>
     </main>
 
-   <!-- Footer -->
-<footer>
-  <div class="container footer-content">
-    <h3 class="footer-title">SKH Traders</h3>
+    <a href="cart.html" class="cart-badge" id="cartBadge">0</a>
 
-    <p class="footer-desc">
-      Your trusted partner for premium quality seeds. Specializing in fennel, carom, coriander, and cumin seeds.
-    </p>
+    <!-- Footer -->
+    <footer id="site-footer">
+        <div class="container footer-content" style="display:flex;gap:30px;flex-wrap:wrap;align-items:center;justify-content:space-between;">
+            <div style="flex:1;min-width:220px;">
+                <h3 class="footer-title">SKH TRADERS</h3>
+                <p class="footer-desc">Premium export-grade spices from Pakistan. Serving international wholesalers, food manufacturers, and seasoning companies worldwide.</p>
+            </div>
 
-    <nav class="footer-nav" aria-label="Footer navigation">
-      <a href="#home">Home</a>
-      <a href="#products">Products</a>
-      <a href="#services">Services</a>
-      <a href="#contact">Contact</a>
-    </nav>
+            <div style="display:flex;gap:24px;align-items:center;flex:0 1 auto;white-space:nowrap;">
+                <div style="color:#ffd700;"><span style="font-size:18px;">📞</span> <a href="tel:+923248787858" style="color:#ffd700;text-decoration:none;">+92 324 8787858</a></div>
+                <div style="color:#ffd700;"><i class="fab fa-whatsapp" style="font-size:18px;color:#ffd700;"></i> <a href="https://wa.me/923178101476" target="_blank" rel="noopener" style="color:#ffd700;text-decoration:none;">03178101476</a></div>
+                <div style="color:#ffd700;"><i class="fab fa-facebook" style="font-size:18px;color:#ffd700;"></i> <a href="https://www.facebook.com/SKHTRADERS" target="_blank" rel="noopener" style="color:#ffd700;text-decoration:none;">Facebook</a></div>
+            </div>
 
-    <hr class="footer-divider" />
+            <div style="flex:0 0 auto;min-width:200px;text-align:right;color:white;">
+                <strong>Address:</strong> Karachi Port, Pakistan — Export & Logistics Office
+            </div>
 
-    <p class="footer-copyright">2025 SKH Traders. All rights reserved.</p>
-  </div>
-</footer>
+            <div style="width:100%;margin-top:16px;border-top:1px solid rgba(255,255,255,0.2);padding-top:12px;">
+                <p style="margin:0;font-size:13px;color:rgba(255,255,255,0.8);">© 2025 SKH TRADERS. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 
+    <script src="products.js"></script>
+    <script src="cart.js"></script>
+    <script>
+        let currentFilters = { search: '', categories: ['all'] };
+
+        function initPage() {
+            renderCategories();
+            renderProducts(PRODUCTS);
+            updateCartBadge();
+            window.addEventListener('cartUpdated', updateCartBadge);
+        }
+
+        function getCategories() {
+            const set = new Set(PRODUCTS.map(p => p.category));
+            return Array.from(set);
+        }
+
+        function renderCategories() {
+            const filterGroup = document.getElementById('categoryFilter');
+            const categories = getCategories();
+
+            let html = `
+                <div class="filter-option">
+                    <input type="checkbox" id="category-all" value="all" checked onchange="handleCategoryFilter()">
+                    <label for="category-all">All Categories</label>
+                </div>
+            `;
+
+            categories.forEach(category => {
+                const id = `category-${category}`;
+                html += `
+                    <div class="filter-option">
+                        <input type="checkbox" id="${id}" value="${category}" onchange="handleCategoryFilter()">
+                        <label for="${id}">${category}</label>
+                    </div>
+                `;
+            });
+
+            filterGroup.innerHTML = html;
+        }
+
+        function handleSearch() {
+            const searchTerm = document.getElementById('searchInput').value;
+            currentFilters.search = searchTerm;
+            applyFilters();
+        }
+
+        function handleSearchClick() {
+            const searchTerm = document.getElementById('searchInput').value;
+            if (searchTerm.trim() === '') {
+                // If no search term, show all products
+                currentFilters.search = '';
+                applyFilters();
+            } else {
+                // Search for the spice
+                currentFilters.search = searchTerm;
+                applyFilters();
+            }
+        }
+
+// Default state
+// Ensure "All Categories" is checked by default
+document.getElementById('category-all').checked = true;
+currentFilters = { categories: ['all'], search: '' };
+
+function handleCategoryFilter(clickedCheckbox) {
+    var allCheckbox = document.getElementById('category-all');
+    var wholeSpicesCheckbox = document.getElementById('category-whole-spices');
+    var groundWholeCheckbox = document.getElementById('category-ground-whole');
+
+    // Case 1: User clicked "All Categories"
+    if (clickedCheckbox.id === 'category-all') {
+        if (allCheckbox.checked) {
+            // Uncheck others
+            wholeSpicesCheckbox.checked = false;
+            groundWholeCheckbox.checked = false;
+            currentFilters.categories = ['all'];
+        } else {
+            // Prevent "All" from being unchecked with no other selection
+            allCheckbox.checked = true;
+            currentFilters.categories = ['all'];
+        }
+    } 
+    // Case 2: User clicked a specific category
+    else {
+        // Uncheck "All Categories"
+        allCheckbox.checked = false;
+
+        // Collect selected specific categories
+        var selectedCategories = [];
+        if (wholeSpicesCheckbox.checked) {
+            selectedCategories.push('Whole Spices');
+        }
+        if (groundWholeCheckbox.checked) {
+            selectedCategories.push('Ground & Whole');
+        }
+
+        // If none selected, revert back to "All Categories"
+        if (selectedCategories.length === 0) {
+            allCheckbox.checked = true;
+            currentFilters.categories = ['all'];
+        } else {
+            currentFilters.categories = selectedCategories;
+        }
+    }
+
+    applyFilters();
+}
+
+
+
+
+
+
+
+        // function handleCategoryFilter() {
+        //     var allCheckbox = document.getElementById('category-all');
+        //     var wholeSpicesCheckbox = document.getElementById('category-whole-spices');
+        //     var groundWholeCheckbox = document.getElementById('category-ground-whole');
+            
+        //     // If "All Categories" is checked
+        //     if (allCheckbox.checked) {
+        //         // Uncheck the other checkboxes
+        //         wholeSpicesCheckbox.checked = false;
+        //         groundWholeCheckbox.checked = false;
+        //         currentFilters.categories = ['all'];
+        //     } 
+        //     // If any specific category is checked
+        //     else {
+        //         // Automatically uncheck "All Categories"
+        //         allCheckbox.checked = false;
+                
+        //         // Get all checked specific categories
+        //         var selectedCategories = [];
+        //         if (wholeSpicesCheckbox.checked) {
+        //             selectedCategories.push('Whole Spices');
+        //         }
+        //         if (groundWholeCheckbox.checked) {
+        //             selectedCategories.push('Ground & Whole');
+        //         }
+                
+        //         // If no specific category is selected, default back to "All Categories"
+        //         if (selectedCategories.length === 0) {
+        //             allCheckbox.checked = true;
+        //             currentFilters.categories = ['all'];
+        //         } else {
+        //             currentFilters.categories = selectedCategories;
+        //         }
+        //     }
+
+        //     applyFilters();
+        // }
+
+function applyFilters() {
+    let filtered = PRODUCTS;
+
+    // Apply search
+    if (currentFilters.search) {
+        filtered = searchProducts(currentFilters.search);
+    }
+
+    // Apply category filter
+    if (!currentFilters.categories.includes('all')) {
+        filtered = filtered.filter(p => currentFilters.categories.includes(p.category));
+    }
+
+    renderProducts(filtered);
+}
+
+
+
+        // function applyFilters() {
+        //     let filtered = PRODUCTS;
+
+        //     // Apply search
+        //     if (currentFilters.search) {
+        //         filtered = searchProducts(currentFilters.search);
+        //     }
+
+        //     // Apply category filter
+        //     if (!currentFilters.categories.includes('all')) {
+        //         filtered = filtered.filter(p => currentFilters.categories.includes(p.category));
+        //     }
+
+        //     renderProducts(filtered);
+        // }
+
+        function renderProducts(products) {
+            const grid = document.getElementById('productsGrid');
+
+            if (!grid) return;
+
+            if (products.length === 0) {
+                grid.innerHTML = '<div class="no-results">No products found matching your search.</div>';
+                return;
+            }
+
+            grid.innerHTML = products.map(product => `
+                <div class="product-card" style="background:white;border:1px solid var(--border-color);border-radius:8px;overflow:hidden;display:flex;flex-direction:column;transition:all 0.3s;box-shadow:0 2px 8px rgba(0,0,0,0.08);">
+                    <img src="${product.image}" alt="${product.name}" class="product-image" style="width:100%;height:200px;object-fit:cover;background:var(--bg-light);">
+                    <div class="product-info" style="padding:16px;display:flex;flex-direction:column;flex:1;">
+                        <div class="product-category" style="font-size:11px;color:var(--primary-color);text-transform:uppercase;font-weight:600;margin-bottom:6px;">${product.category}</div>
+                        <h3 class="product-name" style="font-size:16px;font-weight:700;color:var(--text-color);margin:0 0 8px 0;">${product.name}</h3>
+                        <p class="product-description" style="font-size:13px;color:var(--text-light);margin:0 0 10px 0;line-height:1.4;flex:1;">${product.description}</p>
+
+                        <div class="product-specs" style="font-size:12px;background:var(--bg-light);padding:10px;border-radius:4px;margin-bottom:10px;line-height:1.5;">
+                            <div style="margin-bottom:4px;"><strong>Purity:</strong> ${product.specs.purity}</div>
+                            <div style="margin-bottom:4px;"><strong>Moisture:</strong> ${product.specs.moisture}</div>
+                            <div><strong>Pack:</strong> ${product.specs.packaging}</div>
+                        </div>
+
+                        <div style="font-size:11px;color:var(--accent-color);font-weight:600;margin-bottom:10px;">Min: ${product.minOrder}</div>
+
+                        <div class="product-footer" style="display:flex;gap:8px;align-items:center;margin-top:auto;">
+                            <input 
+                                type="number" 
+                                class="quantity-input" 
+                                value="25" 
+                                min="25" 
+                                max="10000"
+                                data-product-id="${product.id}"
+                                placeholder="kg"
+                                style="width:60px;padding:6px;border:1px solid var(--border-color);border-radius:4px;font-size:12px;text-align:center;"
+                            >
+                            <button 
+                                class="whatsapp-btn"
+                                onclick="contactViaWhatsApp('${product.id}')"
+                                style="flex:1;padding:8px 10px;background:#25D366;color:white;border:none;border-radius:4px;cursor:pointer;font-size:12px;font-weight:600;transition:all 0.3s;display:flex;align-items:center;justify-content:center;gap:6px;" 
+                                onmouseover="this.style.background='#128C7E'"
+                                onmouseout="this.style.background='#25D366'"
+                            >
+                                <i class='fab fa-whatsapp'></i> WhatsApp
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function contactViaWhatsApp(productId) {
+            var product = PRODUCTS.find(function(p) { return p.id === productId; });
+            var quantityInput = document.querySelector('input[data-product-id="' + productId + '"]');
+            var quantity = parseInt(quantityInput.value) || parseInt(product.minOrder) || 100;
+            var message = 'Hello, I am interested in ' + product.name + ' (' + quantity + ' kg). Please provide pricing and delivery details.';
+            var encodedMessage = encodeURIComponent(message);
+            var whatsappUrl = 'https://wa.me/923178101476?text=' + encodedMessage;
+            window.open(whatsappUrl, '_blank');
+        }
+
+        function updateCartBadge() {
+            const count = cartManager.getCartCount();
+            const el = document.getElementById('cartBadge');
+            if (el) el.textContent = count > 999 ? '99+' : count;
+        }
+
+        function toggleMenu() {
+            const nav = document.getElementById('nav-menu');
+            nav.classList.toggle('active');
+        }
+
+        document.addEventListener('DOMContentLoaded', initPage);
+    </script>
 </body>
 </html>
