@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Export Spices - SKH TRADERS</title>
+    <meta name="description" content="Browse our premium export-grade spices. Bulk pricing, export certifications, wholesale orders. Coriander, cumin, fennel, turmeric, and more.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .products-container {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .search-box {
+            position: relative;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 14px;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(45, 122, 62, 0.1);
+        }
+
+        .filter-section {
+            background-color: var(--bg-light);
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        .filter-section h3 {
+            margin-top: 0;
+            margin-bottom: 15px;
+            color: var(--primary-dark);
+            font-size: 16px;
+        }
+
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .filter-option {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .filter-option input[type="checkbox"] {
+            cursor: pointer;
+            width: 18px;
+            height: 18px;
+            accent-color: var(--primary-color);
+        }
+
+        .filter-option label {
+            cursor: pointer;
+            flex: 1;
+            margin: 0;
+            font-size: 14px;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .product-card {
+            background-color: var(--bg-color);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s;
+        }
+
+        .product-card:hover {
+            box-shadow: 0 8px 20px rgba(45, 122, 62, 0.15);
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            background-color: var(--bg-light);
+        }
+
+        .product-info {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        .product-category {
+            font-size: 11px;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .product-name {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-color);
+            margin-bottom: 8px;
+        }
+
+        .product-description {
+            font-size: 13px;
+            color: var(--text-light);
+            margin-bottom: 12px;
+            line-height: 1.5;
+        }
+
+        .product-specs {
+            font-size: 12px;
+            background: var(--bg-light);
+            padding: 12px;
+            border-radius: 4px;
+            margin-bottom: 12px;
+            line-height: 1.6;
+        }
+
+        .spec-item {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 5px;
+        }
+
+        .spec-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .spec-label {
+            font-weight: 600;
+            color: var(--text-color);
+            min-width: 65px;
+        }
+
+        .spec-value {
+            color: var(--text-light);
+        }
+
+        .product-pricing {
+            background: linear-gradient(135deg, #f9fcf7 0%, #e8f3e9 100%);
+            padding: 12px;
+            border-radius: 4px;
+            margin-bottom: 12px;
+        }
+
+        .price-main {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 6px;
+        }
+
+        .price-bulk {
+            font-size: 11px;
+            color: var(--text-light);
+            line-height: 1.5;
+        }
+
+        .min-order {
+            font-size: 11px;
+            color: var(--accent-color);
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .product-footer {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            margin-top: auto;
+        }
+
+        .quantity-input {
+            width: 70px;
+            padding: 8px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            font-size: 13px;
+            text-align: center;
+        }
+
+        .add-to-cart-btn {
+            flex: 1;
+            padding: 10px 12px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .add-to-cart-btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-1px);
+        }
+
+        .add-to-cart-btn:active {
+            transform: scale(0.98);
+        }
+
+        .cart-badge {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-weight: 700;
+            box-shadow: 0 4px 12px rgba(45, 122, 62, 0.4);
+            z-index: 40;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .cart-badge:hover {
+            transform: scale(1.1);
+        }
+
+        .no-results {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--text-light);
+        }
+
+        @media (max-width: 900px) {
+            .products-container {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                flex-direction: row;
+                gap: 15px;
+                flex-wrap: wrap;
+            }
+
+            .search-box {
+                flex: 1;
+                min-width: 200px;
+            }
+
+            .filter-section {
+                flex: 1;
+                min-width: 150px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cart-badge {
+                bottom: 20px;
+                right: 20px;
+                width: 50px;
+                height: 50px;
+                font-size: 14px;
+            }
+
+            .product-card {
+                border-radius: 6px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <!-- <header>
+        <div class="header-container">
+            <a href="index.html" class="logo">SKH TRADERS</a>
+            <nav id="nav-menu">
+                <a href="index.html">Home</a>
+                <a href="index.html#products-section" class="active">Products</a>
+                <a href="quality.html">Quality</a>
+                <a href="about.html">About</a>
+                <a href="index.html#site-footer">Contact</a>
+            </nav>
+            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+        </div>
+    </header> -->
+
+    <!-- <main>
+        <section id="products-section">
+            <h2>Premium Export-Grade Spices</h2>
+            <p>Bulk quantities available | Competitive wholesale pricing | All export certified | Fast international shipping</p>
+
+            <div class="products-container">
+                # Sidebar with search and filters -->
+                <!-- <aside class="sidebar">
+                    <div class="search-box" style="position: relative;">
+                        <span style="position: absolute; left: 12px; top: 50%; transform: translateY(-50%); font-size: 16px; color: var(--text-light);">🔍</span>
+                        <input 
+                            type="text" 
+                            id="searchInput" 
+                            placeholder="Search spices..."
+                            onkeyup="handleSearch()"
+                            style="padding-left: 38px;"
+                        >
+                    </div>
+
+                    <div class="filter-section">
+                        <h3>Category</h3>
+                        <div class="filter-group" id="categoryFilter">
+                            <div class="filter-option">
+                                <input type="checkbox" id="category-all" value="all" checked onchange="handleCategoryFilter()">
+                                <label for="category-all">All Categories</label>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+
+                 Products Grid -->
+                <!-- <div id="productsGrid" class="products-grid">
+                    Populated by JavaScript -->
+                <!-- </div>
+            </div>
+        </section>
+    </main> -->  
+
+    <!-- Cart Badge -->
+    <a href="cart.html" class="cart-badge" id="cartBadge">0</a>
+
+    <!-- Footer -->
+    <footer id="site-footer">
+        <div class="container footer-content" style="display:flex;gap:30px;flex-wrap:wrap;align-items:center;justify-content:space-between;">
+            <div style="flex:1;min-width:220px;">
+                <h3 class="footer-title">SKH TRADERS</h3>
+                <p class="footer-desc">Premium export-grade spices from Pakistan. Serving international wholesalers, food manufacturers, and seasoning companies worldwide.</p>
+            </div>
+
+            <div style="display:flex;gap:24px;align-items:center;flex:0 1 auto;white-space:nowrap;">
+                <div style="color:#ffd700;"><span style="font-size:18px;">📞</span> <a href="tel:+923248787858" style="color:#ffd700;text-decoration:none;">+92 324 8787858</a></div>
+                <div style="color:#ffd700;"><i class="fab fa-whatsapp" style="font-size:18px;color:#ffd700;"></i> <a href="https://wa.me/923178101476" target="_blank" rel="noopener" style="color:#ffd700;text-decoration:none;">03178101476</a></div>
+                <div style="color:#ffd700;"><i class="fab fa-facebook" style="font-size:18px;color:#ffd700;"></i> <a href="https://www.facebook.com/SKHTRADERS" target="_blank" rel="noopener" style="color:#ffd700;text-decoration:none;">Facebook</a></div>
+            </div>
+
+            <div style="flex:0 0 auto;min-width:200px;text-align:right;color:white;">
+                <strong>Address:</strong> Karachi Port, Pakistan — Export & Logistics Office
+            </div>
+
+            <div style="width:100%;margin-top:16px;border-top:1px solid rgba(255,255,255,0.2);padding-top:12px;">
+                <p style="margin:0;font-size:13px;color:rgba(255,255,255,0.8);">© 2025 SKH TRADERS. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="products.js"></script>
+    <script src="cart.js"></script>
+    <script>
+        let currentFilters = {
+            search: '',
+            categories: ['all']
+        };
+
+        // Initialize page
+        function initPage() {
+            renderCategories();
+            renderProducts(PRODUCTS);
+            updateCartBadge();
+            window.addEventListener('cartUpdated', updateCartBadge);
+        }
+
+        // Render category filters
+        function renderCategories() {
+            const filterGroup = document.getElementById('categoryFilter');
+            const categories = getCategories();
+
+            let html = `
+                <div class="filter-option">
+                    <input type="checkbox" id="category-all" value="all" checked onchange="handleCategoryFilter()">
+                    <label for="category-all">All Categories</label>
+                </div>
+            `;
+
+            categories.forEach(category => {
+                const id = `category-${category}`;
+                html += `
+                    <div class="filter-option">
+                        <input type="checkbox" id="${id}" value="${category}" onchange="handleCategoryFilter()">
+                        <label for="${id}">${category}</label>
+                    </div>
+                `;
+            });
+
+            filterGroup.innerHTML = html;
+        }
+
+        // Handle search
+        function handleSearch() {
+            const searchTerm = document.getElementById('searchInput').value;
+            currentFilters.search = searchTerm;
+            applyFilters();
+        }
+
+        // Handle category filter
+        function handleCategoryFilter() {
+            const checkboxes = document.querySelectorAll('#categoryFilter input[type="checkbox"]');
+            const selectedCategories = Array.from(checkboxes)
+                .filter(cb => cb.checked)
+                .map(cb => cb.value);
+
+            if (selectedCategories.includes('all')) {
+                currentFilters.categories = ['all'];
+                checkboxes.forEach(cb => cb.checked = cb.value === 'all');
+            } else {
+                currentFilters.categories = selectedCategories.length > 0 ? selectedCategories : ['all'];
+            }
+
+            applyFilters();
+        }
+
+        // Apply filters and search
+        function applyFilters() {
+            let filtered = PRODUCTS;
+
+            // Apply search
+            if (currentFilters.search) {
+                filtered = searchProducts(currentFilters.search);
+            }
+
+            // Apply category filter
+            if (!currentFilters.categories.includes('all')) {
+                filtered = filtered.filter(p => currentFilters.categories.includes(p.category));
+            }
+
+            renderProducts(filtered);
+        }
+
+        // Render products to grid
+        function renderProducts(products) {
+            const grid = document.getElementById('productsGrid');
+
+            if (products.length === 0) {
+                grid.innerHTML = '<div class="no-results">No products found matching your search.</div>';
+                return;
+            }
+
+            grid.innerHTML = products.map(product => `
+                <div class="product-card">
+                    <img src="${product.image}" alt="${product.name}" class="product-image">
+                    <div class="product-info">
+                        <div class="product-category">${product.category}</div>
+                        <h3 class="product-name">${product.name}</h3>
+                        <p class="product-description">${product.description}</p>
+
+                        <div class="product-specs">
+                            <div class="spec-item">
+                                <span class="spec-label">Purity:</span>
+                                <span class="spec-value">${product.specs.purity}</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Moisture:</span>
+                                <span class="spec-value">${product.specs.moisture}</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Pack:</span>
+                                <span class="spec-value">${product.specs.packaging}</span>
+                            </div>
+                        </div>
+
+                        <div class="product-pricing">
+                            <div class="price-main">$${product.price.toFixed(2)}/kg</div>
+                            <div class="price-bulk">
+                                100kg: $${product.bulkPrices['100kg'].toFixed(2)}/kg<br>
+                                500kg: $${product.bulkPrices['500kg'].toFixed(2)}/kg
+                            </div>
+                        </div>
+
+                        <div class="min-order">Minimum Order: ${product.minOrder}</div>
+
+                        <div class="product-footer">
+                            <input 
+                                type="number" 
+                                class="quantity-input" 
+                                value="100" 
+                                min="100" 
+                                max="10000"
+                                data-product-id="${product.id}"
+                                placeholder="kg"
+                            >
+                            <button 
+                                class="add-to-cart-btn"
+                                onclick="addProductToCart('${product.id}')"
+                            >
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Add product to cart
+        function addProductToCart(productId) {
+            const product = PRODUCTS.find(p => p.id === productId);
+            const quantityInput = document.querySelector(`input[data-product-id="${productId}"]`);
+            const quantity = parseInt(quantityInput.value) || 100;
+
+            if (quantity < parseInt(product.minOrder)) {
+                alert(`Minimum order is ${product.minOrder}`);
+                return;
+            }
+
+            if (cartManager.addToCart(product, quantity)) {
+                const badge = document.getElementById('cartBadge');
+                badge.classList.add('active');
+                alert(`${quantity}kg of ${product.name} added to cart!`);
+            }
+        }
+
+        // Update cart badge count
+        function updateCartBadge() {
+            const count = cartManager.getCartCount();
+            document.getElementById('cartBadge').textContent = count > 999 ? '99+' : count;
+        }
+
+        // Mobile menu toggle
+        function toggleMenu() {
+            const nav = document.getElementById('nav-menu');
+            nav.classList.toggle('active');
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', initPage);
+    </script>
+</body>
+</html>
+    <style>
+        .products-container {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .search-box {
+            position: relative;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 14px;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(45, 122, 62, 0.1);
+        }
+
+        .filter-section {
+            background-color: var(--bg-light);
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        .filter-section h3 {
+            margin-top: 0;
+            margin-bottom: 15px;
+            color: var(--primary-dark);
+            font-size: 16px;
+        }
+
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .filter-option {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .filter-option input[type="checkbox"] {
+            cursor: pointer;
+            width: 18px;
+            height: 18px;
+            accent-color: var(--primary-color);
+        }
+
+        .filter-option label {
+            cursor: pointer;
+            flex: 1;
+            margin: 0;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .product-card {
+            background-color: var(--bg-color);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: box-shadow 0.3s, transform 0.3s;
+        }
+
+        .product-card:hover {
+            box-shadow: 0 6px 16px var(--shadow-color);
+            transform: translateY(-4px);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            background-color: var(--bg-light);
+        }
+
+        .product-info {
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        .product-name {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-color);
+            margin-bottom: 8px;
+        }
+
+        .product-category {
+            font-size: 12px;
+            color: var(--accent-color);
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .product-description {
+            font-size: 13px;
+            color: var(--text-light);
+            margin-bottom: 12px;
+            flex: 1;
+            line-height: 1.4;
+        }
+
+        .product-price {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 12px;
+        }
+
+        .product-footer {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .quantity-input {
+            width: 60px;
+            padding: 6px 8px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            font-size: 13px;
+            text-align: center;
+        }
+
+        .add-to-cart-btn {
+            flex: 1;
+            padding: 8px 12px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+
+        .add-to-cart-btn:hover {
+            background-color: var(--primary-dark);
+        }
+
+        .add-to-cart-btn:active {
+            transform: scale(0.98);
+        }
+
+        .cart-badge {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-weight: 700;
+            box-shadow: 0 4px 12px rgba(45, 122, 62, 0.3);
+            z-index: 40;
+            transition: transform 0.3s;
+        }
+
+        .cart-badge:hover {
+            transform: scale(1.1);
+        }
+
+        .cart-badge.active {
+            animation: pulse 0.6s;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.15); }
+            100% { transform: scale(1); }
+        }
+
+        .no-results {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--text-light);
+        }
+
+        .cart-link {
+            text-decoration: none;
+        }
+
+        @media (max-width: 900px) {
+            .products-container {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                flex-direction: row;
+                gap: 15px;
+                flex-wrap: wrap;
+            }
+
+            .search-box {
+                flex: 1;
+                min-width: 200px;
+            }
+
+            .filter-section {
+                flex: 1;
+                min-width: 150px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cart-badge {
+                bottom: 20px;
+                right: 20px;
+                width: 50px;
+                height: 50px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo">SKH TRADERS</a>
+            <nav id="nav-menu">
+                <a href="index.html">Home</a>
+                <a href="index.html#products-section" class="active">Products</a>
+                <a href="quality.html">Quality</a>
+                <a href="about.html">About</a>
+                <a href="index.html#site-footer">Contact</a>
+            </nav>
+            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+        </div>
+    </header>
+
+    <main>
+        <section id="products-section">
+            <h2>Our Products</h2>
+            <p>Browse our premium selection of seeds and spices. Use search and filters to find exactly what you need.</p>
+
+            <div class="products-container">
+                <!-- Sidebar with search and filters -->
+                <aside class="sidebar">
+                    <div class="search-box">
+                        <input 
+                            type="text" 
+                            id="searchInput" 
+                            placeholder="Search products..."
+                            onkeyup="handleSearch()"
+                        >
+                    </div>
+
+                    <div class="filter-section">
+                        <h3>Category</h3>
+                        <div class="filter-group" id="categoryFilter">
+                            <div class="filter-option">
+                                <input type="checkbox" id="category-all" value="all" checked onchange="handleCategoryFilter()">
+                                <label for="category-all">All Categories</label>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+
+                <!-- Products Grid -->
+                <div id="productsGrid" class="products-grid">
+                    <!-- Populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Cart Badge -->
+    <a href="cart.html" class="cart-link">
+        <div class="cart-badge" id="cartBadge">0</div>
+    </a>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-content" style="display:flex;gap:30px;flex-wrap:wrap;align-items:flex-start;">
+            <div style="flex:1;min-width:220px;">
+                <h3 class="footer-title">SKH TRADERS</h3>
+                <p class="footer-desc">Premium export-grade spices from Pakistan. Serving international wholesalers, food manufacturers, and seasoning companies worldwide.</p>
+                <div class="footer-contact" style="margin-top:12px;font-size:15px;color:#ffd700;">
+                    <div><span style="font-size:18px;">📞</span> Mobile: <a href="tel:+923248787858" style="color:#ffd700;text-decoration:none;">+92 324 8787858</a></div>
+                    <div><i class="fab fa-whatsapp" style="font-size:18px;color:#ffd700;margin-right:5px;"></i> WhatsApp: <a href="https://wa.me/923178101476" target="_blank" rel="noopener" style="color:#ffd700;text-decoration:none;">03178101476</a></div>
+                    <div><i class="fab fa-facebook" style="font-size:18px;color:#ffd700;margin-right:5px;"></i> Facebook: <a href="https://www.facebook.com/SKHTRADERS" target="_blank" rel="noopener" style="color:#ffd700;text-decoration:none;">/SKHTRADERS</a></div>
+                </div>
+            </div>
+
+            <div style="display:flex;gap:24px;align-items:center;flex:0 1 auto;white-space:nowrap;color:#ffd700;">
+                <div><span style="font-size:18px;">📞</span> <a href="tel:+923248787858" style="color:#ffd700;text-decoration:none;">+92 324 8787858</a></div>
+                <div><i class="fab fa-whatsapp" style="font-size:18px;color:#ffd700;"></i> <a href="https://wa.me/923178101476" target="_blank" rel="noopener" style="color:#ffd700;text-decoration:none;">03178101476</a></div>
+                <div><i class="fab fa-facebook" style="font-size:18px;color:#ffd700;"></i> <a href="https://www.facebook.com/SKHTRADERS" target="_blank" rel="noopener" style="color:#ffd700;text-decoration:none;">Facebook</a></div>
+            </div>
+
+            <div style="flex:0 0 auto;min-width:200px;text-align:right;color:white;">
+                <strong>Address:</strong> Karachi Port, Pakistan — Export & Logistics Office
+            </div>
+
+            <div style="width:100%;margin-top:16px;border-top:1px solid rgba(255,255,255,0.2);padding-top:12px;">
+                <p style="margin:0;font-size:13px;color:rgba(255,255,255,0.8);">© 2025 SKH TRADERS. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="products.js"></script>
+    <script src="cart.js"></script>
+    <!-- <script>
+        let currentFilters = {
+            search: '',
+            categories: ['all']
+        };
+
+        // Initialize page
+        function initPage() {
+            renderCategories();
+            renderProducts(PRODUCTS);
+            updateCartBadge();
+            window.addEventListener('cartUpdated', updateCartBadge);
+        }
+
+        // Render category filters
+        function renderCategories() {
+            const filterGroup = document.getElementById('categoryFilter');
+            const categories = getCategories();
+
+            let html = `
+                <div class="filter-option">
+                    <input type="checkbox" id="category-all" value="all" checked onchange="handleCategoryFilter()">
+                    <label for="category-all">All Categories</label>
+                </div>
+            `;
+
+            categories.forEach(category => {
+                const id = `category-${category}`;
+                html += `
+                    <div class="filter-option">
+                        <input type="checkbox" id="${id}" value="${category}" onchange="handleCategoryFilter()">
+                        <label for="${id}">${category}</label>
+                    </div>
+                `;
+            });
+
+            filterGroup.innerHTML = html;
+        }
+
+        // Handle search
+        function handleSearch() {
+            const searchTerm = document.getElementById('searchInput').value;
+            currentFilters.search = searchTerm;
+            applyFilters();
+        }
+
+        // Handle category filter
+        function handleCategoryFilter() {
+            const checkboxes = document.querySelectorAll('#categoryFilter input[type="checkbox"]');
+            const allCheckbox = document.getElementById('category-all');
+            const selectedCategories = Array.from(checkboxes)
+                .filter(cb => cb.checked && cb.value !== 'all')
+                .map(cb => cb.value);
+
+            if (!allCheckbox.checked && selectedCategories.length === 0) {
+                checkboxes.forEach(cb => cb.checked = cb.value === 'all');
+                currentFilters.categories = ['all'];
+            } 
+            else if (allCheckbox.checked) {
+                checkboxes.forEach(cb => cb.checked = cb.value === 'all');
+                currentFilters.categories = ['all'];
+            } 
+            else if (selectedCategories.length > 0) {
+                allCheckbox.checked = false;
+                currentFilters.categories = selectedCategories;
+            }
+            else {
+                allCheckbox.checked = true;
+                currentFilters.categories = ['all'];
+            }
+            applyFilters();
+        }
+
+        // Apply filters and search
+        function applyFilters() {
+            let filtered = PRODUCTS;
+
+            // Apply search
+            if (currentFilters.search) {
+                filtered = searchProducts(currentFilters.search);
+            }
+
+            // Apply category filter
+            if (!currentFilters.categories.includes('all')) {
+                filtered = filtered.filter(p => currentFilters.categories.includes(p.category));
+            }
+
+            renderProducts(filtered);
+        }
+
+        // Render products to grid
+        function renderProducts(products) {
+            const grid = document.getElementById('productsGrid');
+
+            if (products.length === 0) {
+                grid.innerHTML = '<div class="no-results">No products found. Try a different search or filter.</div>';
+                return;
+            }
+
+            grid.innerHTML = products.map(product => `
+                <div class="product-card">
+                    <img src="${product.image}" alt="${product.name}" class="product-image">
+                    <div class="product-info">
+                        <div class="product-category">${product.category}</div>
+                        <h3 class="product-name">${product.name}</h3>
+                        <p class="product-description">${product.description}</p>
+                        <div class="product-price">Rs. ${product.price.toFixed(2)}</div>
+                        <div class="product-footer">
+                            <input 
+                                type="number" 
+                                class="quantity-input" 
+                                value="1" 
+                                min="1" 
+                                max="1000"
+                                data-product-id="${product.id}"
+                            >
+                            <button 
+                                class="add-to-cart-btn"
+                                onclick="addProductToCart('${product.id}')"
+                            >
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Add product to cart
+        function addProductToCart(productId) {
+            const product = PRODUCTS.find(p => p.id === productId);
+            const quantityInput = document.querySelector(`input[data-product-id="${productId}"]`);
+            const quantity = parseInt(quantityInput.value) || 1;
+
+            if (cartManager.addToCart(product, quantity)) {
+                const badge = document.getElementById('cartBadge');
+                badge.classList.add('active');
+                setTimeout(() => badge.classList.remove('active'), 600);
+                alert(`${product.name} added to cart!`);
+                quantityInput.value = 1;
+            }
+        }
+
+        // Update cart badge count
+        function updateCartBadge() {
+            const count = cartManager.getCartCount();
+            document.getElementById('cartBadge').textContent = count;
+        }
+
+        // Mobile menu toggle
+        function toggleMenu() {
+            const nav = document.getElementById('nav-menu');
+            nav.classList.toggle('active');
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', initPage);
+    </script> -->
+</body>
+</html>

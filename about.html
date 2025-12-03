@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About SKH TRADERS - Premium Spices Exporter</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Hero Section Styles */
+        .hero {
+            background: linear-gradient(135deg, #1a472a 0%, #2d7a3e 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+
+        .hero-tagline {
+            font-size: 22px;
+            margin-bottom: 20px;
+            opacity: 0.95;
+            font-weight: 500;
+            color: #ffd700;
+        }
+
+        .hero-subtitle {
+            font-size: 16px;
+            margin-top: 25px;
+            color: white;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        .about-main {
+            background: white;
+            padding: 60px 20px;
+        }
+
+        .about-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .about-section {
+            margin-bottom: 60px;
+        }
+
+        .about-section h2 {
+            font-size: 32px;
+            color: var(--primary-dark);
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid var(--primary-color);
+        }
+
+        .about-section p {
+            font-size: 15px;
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .value-card {
+            background: linear-gradient(135deg, #f9fcf7 0%, #e8f3e9 100%);
+            padding: 30px;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-color);
+            text-align: center;
+        }
+
+        .value-card-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .value-card h3 {
+            font-size: 18px;
+            color: var(--primary-dark);
+            margin-bottom: 12px;
+        }
+
+        .value-card p {
+            font-size: 14px;
+            color: var(--text-light);
+            margin: 0;
+        }
+
+
+         /* Strengths and Quality styles (moved from homepage) */
+ .strengths-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .strength-card {
+           background: linear-gradient(135deg, #f9fcf7 0%, #e8f3e9 100%);
+            padding: 30px;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-color);
+            text-align: center;
+        }
+
+        .strength-card-icon {
+              font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .strength-card h3 {
+             font-size: 18px;
+            color: var(--primary-dark);
+            margin-bottom: 12px;
+        }
+
+        .strength-card p {
+            font-size: 14px;
+            color: var(--text-light);
+            margin: 0;
+        }
+
+
+
+        .why-choose {
+            background: var(--bg-light);
+            padding: 40px;
+            border-radius: 8px;
+            margin-top: 40px;
+        }
+
+        .why-choose h3 {
+            font-size: 20px;
+            color: var(--primary-dark);
+            margin-bottom: 20px;
+        }
+
+        .why-list {
+            display: grid;
+            gap: 15px;
+        }
+
+        .why-item {
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
+        }
+
+        .why-icon {
+            color: var(--primary-color);
+            font-weight: bold;
+            font-size: 18px;
+            min-width: 24px;
+        }
+
+        .why-text {
+            flex: 1;
+        }
+
+        .why-text strong {
+            color: var(--text-color);
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .why-text p {
+            font-size: 14px;
+            color: var(--text-light);
+            margin: 0;
+        }
+
+        .timeline {
+            position: relative;
+            padding: 30px 0;
+            margin: 40px 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 3px;
+            height: 100%;
+            background: var(--border-color);
+        }
+
+        .timeline-item {
+            margin-bottom: 30px;
+            width: 45%;
+        }
+
+        .timeline-item:nth-child(odd) {
+            margin-left: 0;
+            text-align: right;
+            padding-right: 55px;
+        }
+
+        .timeline-item:nth-child(even) {
+            margin-left: auto;
+            padding-left: 55px;
+        }
+
+        .timeline-content {
+            background: var(--bg-light);
+            padding: 20px;
+            border-radius: 6px;
+            border-left: 3px solid var(--primary-color);
+        }
+
+        .timeline-year {
+            font-weight: 700;
+            color: var(--primary-color);
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+
+        .timeline-text {
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            top: 40px;
+            transform: translateX(-50%);
+            width: 16px;
+            height: 16px;
+            background: white;
+            border: 3px solid var(--primary-color);
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .stats-section {
+            background: linear-gradient(135deg, #1a472a 0%, #2d7a3e 100%);
+            color: white;
+            padding: 60px 20px;
+            margin-top: 60px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .quality-section {
+            background: linear-gradient(135deg, #1a472a 0%, #2d7a3e 100%);
+            color: white;
+            padding: 40px 20px;
+            margin-top: 40px;
+        }
+
+        .quality-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            align-items: start;
+        }
+
+        .quality-checklist { list-style: none; padding: 0; }
+
+
+        .stat-box {
+            padding: 30px 20px;
+        }
+
+        .stat-number {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 16px;
+            opacity: 0.95;
+        }
+
+        @media (max-width: 768px) {
+            .about-hero h1 {
+                font-size: 32px;
+            }
+
+            .timeline::before {
+                left: 5%;
+            }
+
+            .timeline-item {
+                width: 100%;
+            }
+
+            .timeline-item:nth-child(odd),
+            .timeline-item:nth-child(even) {
+                width: 100%;
+                padding-left: 40px;
+                padding-right: 0;
+                text-align: left;
+                margin-left: 0;
+            }
+
+            .timeline-dot {
+                left: 5%;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 500px) {
+            .about-section h2 {
+                font-size: 24px;
+            }
+
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo">SKH TRADERS</a>
+            <nav id="nav-menu">
+                <a href="index.html">Home</a>
+                <a href="index.html#products-section">Products</a>
+                <a href="quality.html">Quality</a>
+                <a href="about.html" class="active">About</a>
+                <a href="index.html#site-footer">Contact</a>
+            </nav>
+            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>About SKH TRADERS</h1>
+                <p class="hero-tagline">Our Story • Mission • Values • Excellence</p>
+                <p class="hero-subtitle">
+                    SKH TRADERS is a trusted exporter of premium whole and ground spices, supplying to international wholesalers, importers, food manufacturers, and seasoning companies. We deliver clean, professionally processed, and export-certified spices with complete documentation and fast shipment from Karachi Port.
+                </p>
+            </div>
+        </section>
+
+        <!-- Main Content -->
+        <section class="about-main">
+            <div class="about-container">
+                <!-- Who We Are -->
+                <div class="about-section">
+                    <h2>Who We Are</h2>
+                    <p>
+                        SKH TRADERS is a Pakistan-based exporter specializing in high-quality whole and ground spices. With a strong sourcing network across Pakistan's agricultural regions and professional cleaning/processing standards, we serve wholesalers and food manufacturers across the globe.
+                    </p>
+                    <p>
+                        Our commitment to excellence has made us a trusted partner in the international spice trade. We understand that our clients depend on consistent quality and reliability—that's why we never compromise on standards or transparency.
+                    </p>
+                </div>
+
+                <!-- Our Vision -->
+                <div class="about-section">
+                    <h2>Our Vision</h2>
+                    <p>
+                        To become a globally respected supplier of natural, clean, and responsibly sourced spices, representing Pakistan's agricultural excellence in international markets. We aim to build long-term partnerships based on trust, quality, and mutual growth.
+                    </p>
+                    <p>
+                        We envision SKH TRADERS as the preferred choice for importers and wholesalers seeking premium spices with complete traceability and certification.
+                    </p>
+                </div>
+
+                <!-- Our Mission -->
+                <div class="about-section">
+                    <h2>Our Mission</h2>
+                    <p>
+                        To deliver premium quality spices with transparent sourcing, strict quality control, and world-class export services that meet the standards of U.S., European, and Middle Eastern importers.
+                    </p>
+                    <p>
+                        We're dedicated to ensuring that every batch exceeds international regulations and customer expectations. Our mission is to make premium Pakistani spices accessible to the global market while maintaining complete transparency throughout the supply chain.
+                    </p>
+                </div>
+
+                <!-- Our Values -->
+                <div class="about-section">
+                    <h2>Our Core Values</h2>
+                    <div class="values-grid">
+                        <div class="value-card">
+                            <div class="value-card-icon">✓</div>
+                            <h3>Quality First</h3>
+                            <p>No compromise on purity, standards, or excellence. Every batch is verified.</p>
+                        </div>
+                        <div class="value-card">
+                            <div class="value-card-icon">🔍</div>
+                            <h3>Transparency</h3>
+                            <p>Ethical sourcing, clear documentation, and complete traceability for every order.</p>
+                        </div>
+                        <div class="value-card">
+                            <div class="value-card-icon">⚙️</div>
+                            <h3>Reliability</h3>
+                            <p>Consistent service, on-time delivery, and dependable partnerships with every buyer.</p>
+                        </div>
+                        <div class="value-card">
+                            <div class="value-card-icon">🤝</div>
+                            <h3>Partnership</h3>
+                            <p>We grow with our customers through long-term, mutually beneficial relationships.</p>
+                        </div>
+                        <div class="value-card">
+                            <div class="value-card-icon">🌿</div>
+                            <h3>100% Natural & Clean</h3>
+                            <p>No artificial colors or additives. Pure, naturally sourced spices for global markets.</p>
+                        </div>
+                        <div class="value-card">
+                            <div class="value-card-icon">✓</div>
+                            <h3>99.5% Purity Guaranteed</h3>
+                            <p>Sortex-cleaned and verified. Every batch meets international export standards.</p>
+                        </div>
+                        <div class="value-card">
+                            <div class="value-card-icon">📦</div>
+                            <h3>7+ Export Products</h3>
+                            <p>Premium selection of whole and ground spices ready for international markets.</p>
+                        </div>
+                        <div class="value-card">
+                            <div class="value-card-icon">🌍</div>
+                            <h3>Global Export Network</h3>
+                            <p>Established connections with importers and wholesalers across the world.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Why Choose Us -->
+                <div class="about-section">
+                    <h2>Why Choose SKH TRADERS</h2>
+                    <div class="why-choose">
+                        <div class="why-list">
+                            <div class="why-item">
+                                <div class="why-icon">✓</div>
+                                <div class="why-text">
+                                    <strong>Clean, Natural Spices</strong>
+                                    <p>100% natural with no artificial colors, chemicals, or preservatives.</p>
+                                </div>
+                            </div>
+                            <div class="why-item">
+                                <div class="why-icon">✓</div>
+                                <div class="why-text">
+                                    <strong>Sortex-Cleaned Export Quality</strong>
+                                    <p>Advanced processing ensures 99–99.5% purity standards.</p>
+                                </div>
+                            </div>
+                            <div class="why-item">
+                                <div class="why-icon">✓</div>
+                                <div class="why-text">
+                                    <strong>Competitive Factory-Level Pricing</strong>
+                                    <p>Direct exporter pricing with bulk discounts for large orders.</p>
+                                </div>
+                            </div>
+                            <div class="why-item">
+                                <div class="why-icon">✓</div>
+                                <div class="why-text">
+                                    <strong>Fast International Logistics</strong>
+                                    <p>Quick shipment from Karachi Port with professional documentation.</p>
+                                </div>
+                            </div>
+                            <div class="why-item">
+                                <div class="why-icon">✓</div>
+                                <div class="why-text">
+                                    <strong>Export-Ready Certification</strong>
+                                    <p>All products meet U.S., European, and international import standards.</p>
+                                </div>
+                            </div>
+                            <div class="why-item">
+                                <div class="why-icon">✓</div>
+                                <div class="why-text">
+                                    <strong>Reliable Long-Term Supply Chain</strong>
+                                    <p>Consistent availability with professional customer support.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+
+ <!-- Core Strengths (moved from homepage) -->
+                <div class="about-section">
+                    <h2>Our Core Strengths</h2>
+                    <div class="strengths-grid">
+                         <div class="strength-card">
+                            <div class="strength-card-icon">🌿</div>
+                            <h3>100% Natural & Clean</h3>
+                            <p>No artificial colors, chemicals, or preservatives. Pure, naturally sourced spices.</p>
+                        </div>
+                        <div class="strength-card">
+                            <div class="strength-card-icon">✓</div>
+                            <h3>Sortex-Processed Quality</h3>
+                            <p>Advanced cleaning and sorting technology ensures 99-99.5% purity standards.</p>
+                        </div>
+                        <div class="strength-card">
+                            <div class="strength-card-icon">📦</div>
+                            <h3>Export-Ready Packaging</h3>
+                            <p>25kg & 50kg PP bags with professional documentation and fast logistics.</p>
+                        </div>
+                        <div class="strength-card">
+                            <div class="strength-card-icon">🌍</div>
+                            <h3>International Certified</h3>
+                            <p>Ready for U.S. & European import standards with complete certifications.</p>
+                        </div>
+                        <div class="strength-card">
+                            <div class="strength-card-icon">🔗</div>
+                            <h3>Reliable Supply Chain</h3>
+                            <p>Consistent, long-term partnerships with reliable sourcing and fulfillment.</p>
+                        </div>
+                        <div class="strength-card">
+                            <div class="strength-card-icon">💰</div>
+                            <h3>Competitive Pricing</h3>
+                            <p>Factory-level pricing with bulk discounts for large orders.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer id="site-footer">
+        <div class="container footer-content" style="display:flex;gap:30px;flex-wrap:wrap;align-items:center;justify-content:space-between;">
+            <div style="flex:1;min-width:220px;">
+                <h3 class="footer-title">SKH TRADERS</h3>
+                <p class="footer-desc">Premium export-grade spices from Pakistan. Serving international wholesalers, food manufacturers, and seasoning companies worldwide.</p>
+            </div>
+
+            <div style="display:flex;gap:24px;align-items:center;flex:0 1 auto;white-space:nowrap;">
+                <div style="color:#ffd700;"><span style="font-size:18px;">📞</span> <a href="tel:+923248787858" style="color:#ffd700;text-decoration:none;">+92 324 8787858</a></div>
+                <div style="color:#ffd700;"><i class="fab fa-whatsapp" style="font-size:18px;color:#ffd700;"></i> <a href="https://wa.me/923178101476" target="_blank" rel="noopener" style="color:#ffd700;text-decoration:none;">03178101476</a></div>
+                <div style="color:#ffd700;"><i class="fab fa-facebook" style="font-size:18px;color:#ffd700;"></i> <a href="https://www.facebook.com/SKHTRADERS" target="_blank" rel="noopener" style="color:#ffd700;text-decoration:none;">Facebook</a></div>
+            </div>
+
+            <div style="flex:0 0 auto;min-width:200px;text-align:right;color:white;">
+                <strong>Address:</strong> Karachi Port, Pakistan — Export & Logistics Office
+            </div>
+
+            <div style="width:100%;margin-top:16px;border-top:1px solid rgba(255,255,255,0.2);padding-top:12px;">
+                <p style="margin:0;font-size:13px;color:rgba(255,255,255,0.8);">© 2025 SKH TRADERS. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const nav = document.getElementById('nav-menu');
+            nav.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

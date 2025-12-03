@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - SKH Traders</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .checkout-container {
+            display: grid;
+            grid-template-columns: 1fr 350px;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .checkout-form-section {
+            background-color: var(--bg-light);
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            padding: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--text-color);
+            font-size: 14px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            font-size: 14px;
+            font-family: inherit;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(45, 122, 62, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .required::after {
+            content: ' *';
+            color: #d32f2f;
+        }
+
+        .form-error {
+            color: #d32f2f;
+            font-size: 12px;
+            margin-top: 5px;
+            display: none;
+        }
+
+        .form-error.show {
+            display: block;
+        }
+
+        .success-message {
+            background-color: #e8f5e9;
+            border: 1px solid #4caf50;
+            color: #2e7d32;
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            display: none;
+        }
+
+        .success-message.show {
+            display: block;
+        }
+
+        /* Order Summary Sidebar */
+        .order-summary {
+            background-color: var(--bg-light);
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            padding: 25px;
+            height: fit-content;
+            position: sticky;
+            top: 100px;
+        }
+
+        .summary-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-color);
+            margin-bottom: 20px;
+        }
+
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 13px;
+        }
+
+        .summary-item:last-child {
+            border-bottom: none;
+        }
+
+        .summary-item-name {
+            flex: 1;
+        }
+
+        .summary-item-price {
+            text-align: right;
+        }
+
+        .summary-divider {
+            border: none;
+            height: 1px;
+            background-color: var(--border-color);
+            margin: 15px 0;
+        }
+
+        .summary-total {
+            display: flex;
+            justify-content: space-between;
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-top: 15px;
+            padding-top: 15px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 14px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 25px;
+            transition: background-color 0.3s;
+        }
+
+        .submit-btn:hover:not(:disabled) {
+            background-color: var(--primary-dark);
+        }
+
+        .submit-btn:disabled {
+            background-color: var(--text-light);
+            cursor: not-allowed;
+        }
+
+        .submit-btn.loading {
+            position: relative;
+            color: transparent;
+        }
+
+        .submit-btn.loading::after {
+            content: '';
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            top: 50%;
+            left: 50%;
+            margin-left: -8px;
+            margin-top: -8px;
+            border: 2px solid #ffffff;
+            border-radius: 50%;
+            border-top-color: transparent;
+            animation: spin 0.6s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .back-to-cart {
+            display: inline-block;
+            margin-top: 15px;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .back-to-cart:hover {
+            text-decoration: underline;
+        }
+
+        .security-notice {
+            background-color: #f0f0f0;
+            border-left: 4px solid var(--primary-color);
+            padding: 15px;
+            border-radius: 4px;
+            font-size: 12px;
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+
+        .security-notice strong {
+            color: var(--primary-dark);
+        }
+
+        @media (max-width: 900px) {
+            .checkout-container {
+                grid-template-columns: 1fr;
+            }
+
+            .order-summary {
+                position: static;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .checkout-form-section {
+                padding: 20px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .order-summary {
+                padding: 20px;
+            }
+        }
+
+        .section-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-top: 25px;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .section-title:first-child {
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo">SKH Traders</a>
+            <nav id="nav-menu">
+                <a href="index.html">Home</a>
+                <a href="products.html">Products</a>
+                <a href="index.html#services">Services</a>
+                <a href="index.html#contact">Contact</a>
+            </nav>
+            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+        </div>
+    </header>
+
+    <main>
+        <section id="checkout-section">
+            <h2>Checkout</h2>
+
+            <div class="checkout-container">
+                <!-- Checkout Form -->
+                <div class="checkout-form-section">
+                    <div class="security-notice">
+                        <strong>🔒 Secure Checkout</strong>: Your information is encrypted and protected. Order details will be sent to our WhatsApp and email.
+                    </div>
+
+                    <div class="success-message" id="successMessage">
+                        ✓ Order submitted successfully! Check your email and WhatsApp for confirmation.
+                    </div>
+
+                    <form id="checkoutForm" onsubmit="handleSubmit(event)">
+                        <!-- Customer Information -->
+                        <h3 class="section-title">Personal Information</h3>
+
+                        <div class="form-group">
+                            <label for="fullName" class="required">Full Name</label>
+                            <input type="text" id="fullName" name="fullName" placeholder="Your full name" required>
+                            <div class="form-error" id="error-fullName"></div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email" class="required">Email Address</label>
+                                <input type="email" id="email" name="email" placeholder="your@email.com" required>
+                                <div class="form-error" id="error-email"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="phone" class="required">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" placeholder="+92 300 1234567" required>
+                                <div class="form-error" id="error-phone"></div>
+                            </div>
+                        </div>
+
+                        <!-- Delivery Address -->
+                        <h3 class="section-title">Delivery Address</h3>
+
+                        <div class="form-group">
+                            <label for="address" class="required">Street Address</label>
+                            <input type="text" id="address" name="address" placeholder="Street address, building, etc." required>
+                            <div class="form-error" id="error-address"></div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="city" class="required">City</label>
+                                <input type="text" id="city" name="city" placeholder="City name" required>
+                                <div class="form-error" id="error-city"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="postalCode" class="required">Postal Code</label>
+                                <input type="text" id="postalCode" name="postalCode" placeholder="Postal code" required>
+                                <div class="form-error" id="error-postalCode"></div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="country">Country</label>
+                            <select id="country" name="country">
+                                <option value="Pakistan">Pakistan</option>
+                                <option value="Afghanistan">Afghanistan</option>
+                                <option value="Bangladesh">Bangladesh</option>
+                                <option value="India">India</option>
+                                <option value="Iran">Iran</option>
+                                <option value="Nepal">Nepal</option>
+                                <option value="Sri Lanka">Sri Lanka</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+
+                        <!-- Hidden CSRF Token -->
+                        <input type="hidden" id="csrf" name="csrf">
+
+                        <button type="submit" class="submit-btn" id="submitBtn">
+                            Complete Order
+                        </button>
+
+                        <a href="cart.html" class="back-to-cart">← Back to Cart</a>
+                    </form>
+                </div>
+
+                <!-- Order Summary -->
+                <aside class="order-summary">
+                    <h3 class="summary-title">Order Summary</h3>
+
+                    <div id="orderItems">
+                        <!-- Populated by JavaScript -->
+                    </div>
+
+                    <div class="summary-divider"></div>
+
+                    <div class="summary-total">
+                        <span>Total:</span>
+                        <span id="totalPrice">Rs. 0.00</span>
+                    </div>
+                </aside>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-content">
+            <h3 class="footer-title">SKH Traders</h3>
+            <p class="footer-desc">
+                Your trusted partner for premium quality seeds. Specializing in fennel, carom, coriander, and cumin seeds.
+            </p>
+            <nav class="footer-nav" aria-label="Footer navigation">
+                <a href="index.html">Home</a>
+                <a href="products.html">Products</a>
+                <a href="index.html#services">Services</a>
+                <a href="index.html#contact">Contact</a>
+            </nav>
+            <hr class="footer-divider" />
+            <p class="footer-copyright">2025 SKH Traders. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="products.js"></script>
+    <script src="cart.js"></script>
+    <script>
+        // Initialize page
+        function initPage() {
+            // Check if cart is empty
+            if (cartManager.getCartCount() === 0) {
+                alert('Your cart is empty. Please add items before checkout.');
+                window.location.href = 'products.html';
+                return;
+            }
+
+            // Set CSRF token
+            document.getElementById('csrf').value = cartManager.getCSRFToken();
+
+            renderOrderSummary();
+        }
+
+        // Render order summary
+        function renderOrderSummary() {
+            const cart = cartManager.getCart();
+            const total = cartManager.getCartTotal();
+            const itemsContainer = document.getElementById('orderItems');
+
+            itemsContainer.innerHTML = cart.map(item => {
+                const subtotal = item.price * item.quantity;
+                return `
+                    <div class="summary-item">
+                        <span class="summary-item-name">${item.name} (${item.quantity}x)</span>
+                        <span class="summary-item-price">Rs. ${subtotal.toFixed(2)}</span>
+                    </div>
+                `;
+            }).join('');
+
+            document.getElementById('totalPrice').textContent = `Rs. ${total.toFixed(2)}`;
+        }
+
+        // Clear all form errors
+        function clearErrors() {
+            document.querySelectorAll('.form-error').forEach(el => {
+                el.classList.remove('show');
+                el.textContent = '';
+            });
+        }
+
+        // Show form error
+        function showError(fieldName, message) {
+            const errorEl = document.getElementById(`error-${fieldName}`);
+            if (errorEl) {
+                errorEl.textContent = message;
+                errorEl.classList.add('show');
+            }
+        }
+
+        // Handle form submission
+        function handleSubmit(event) {
+            event.preventDefault();
+            clearErrors();
+
+            const formData = {
+                fullName: document.getElementById('fullName').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                address: document.getElementById('address').value,
+                city: document.getElementById('city').value,
+                postalCode: document.getElementById('postalCode').value,
+                country: document.getElementById('country').value,
+                csrf: document.getElementById('csrf').value
+            };
+
+            // Create order with validation
+            const result = orderManager.createOrder(formData);
+
+            if (!result.success) {
+                result.errors.forEach(error => {
+                    console.error(error);
+                    alert('Error: ' + error);
+                });
+                return;
+            }
+
+            const order = result.order;
+
+            // Save order locally
+            orderManager.saveOrder(order);
+
+            // Show loading state
+            const submitBtn = document.getElementById('submitBtn');
+            submitBtn.disabled = true;
+            submitBtn.classList.add('loading');
+
+            // Simulate processing delay
+            setTimeout(() => {
+                // Generate and open links for WhatsApp and Email
+                const whatsappLink = orderManager.generateWhatsAppLink(order, '+923248787858');
+                const emailLink = orderManager.generateEmailLink(order);
+
+                // Clear cart
+                cartManager.clearCart();
+
+                // Show success
+                submitBtn.classList.remove('loading');
+                submitBtn.disabled = false;
+                document.getElementById('checkoutForm').reset();
+                document.getElementById('successMessage').classList.add('show');
+
+                // Open WhatsApp and Email in new tabs
+                window.open(whatsappLink, '_blank');
+                setTimeout(() => {
+                    window.open(emailLink, '_blank');
+                }, 500);
+
+                // Redirect after 2 seconds
+                setTimeout(() => {
+                    window.location.href = 'index.html';
+                }, 2000);
+            }, 1000);
+        }
+
+        function toggleMenu() {
+            const nav = document.getElementById('nav-menu');
+            nav.classList.toggle('active');
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', initPage);
+    </script>
+</body>
+</html>
